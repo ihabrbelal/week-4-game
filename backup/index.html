@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>hangman</title>
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="text-align: center">
+            <div class="col-sm-6 col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">TARGET</div>
+                    <div class="panel-body">
+                        <h2 id="computerGuess"> </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-2"> </div>
+            <div class="col-sm-6 col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">TOTAL</div>
+                    <div class="panel-body">
+                        <h2 id="userScore"> 0 </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5">
+                <div style="text-align: center">
+                    <!-- this div will contain crystal images -->
+                    <img style=" width:80px; height:120px; border: solid, 2px, white " src="assets/images/red.png " class="click " id="red ">
+                    <a> <img style="width:80px; height:120px; border: solid, 2px, white" src="assets/images/blue.png" class="click" id="red"></a>
+                    <img style="width:80px; height:120px; border: solid, 2px, white" src="assets/images/gray.png" class="click" id="red">
+                    <img style="width:80px; height:120px; border: solid, 2px, white" src="assets/images/green.png" class="click" id="red">
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-2"> </div>
+            <div class="col-sm-6 col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Win:&nbsp; &nbsp; &nbsp;&nbsp; <span id="winCounter"> 0 </span></div>
+                    <div class="panel-body"> </div>
+                    <div class="panel-heading">Loss:&nbsp; &nbsp; &nbsp; <span id="lossCounter"> 0 </span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jquery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <!-- JS script -->
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>

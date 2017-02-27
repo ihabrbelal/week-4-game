@@ -1,0 +1,106 @@
+// alert("test");
+
+
+// (1) Create variables needed
+
+var computerGuess = 0, // for the number that computer will shoose randomly
+    userScore = 0, // for the addup numbers the user will choose
+    winCounter = 0, // how many wins
+    lossCounter = 0, // how many losses
+    red = 0, // the number will be assinged randomly to the crystals
+    blue = 0,
+    gray = 0,
+    green = 0
+
+// controler
+
+// $("#instr").hover(function() {
+//         $(this).html($("<span> HOVERING!!!!! </span>"));
+//     },
+//     function() {
+//         $(this).html($(""));
+//     });
+
+
+// (2) every time the page loads, have the computer create a random number and show it in guess span 
+// computerGuess = Math.random();
+computerGuess = Math.round(Math.random() * 100) + 19;
+$("#computerGuess").html(computerGuess);
+// console.log(computerGuess);
+
+
+// (3) also assign a number randomly to each crystal.
+
+// crystalValue = Math.round(4 + Math.random() * 29);
+
+red = Math.round(4 + Math.random() * 29);
+// $("#crystal1").val = crystalOne;
+blue = Math.round(4 + Math.random() * 29);
+gray = Math.round(4 + Math.random() * 29);
+green = Math.round(4 + Math.random() * 29);
+
+// reset function to reset all the game data
+function reset() {
+    userScore = 0;
+    $("#userScore").html(userScore);
+    (this).computerGuess = Math.round(Math.random() * 100) + 19;
+    $("#computerGuess").html(computerGuess);
+    (this).red = Math.round(+Math.random() * 29);
+    // $("#crystal1").val = crystalOne;
+    (this).blue = Math.round(4 + Math.random() * 29);
+    (this).gray = Math.round(4 + Math.random() * 29);
+    (this).green = Math.round(4 + Math.random() * 29);
+
+
+};
+
+
+// (4)every time the user click on a crystal create add it to the score span
+function start() {
+    $("#red").on("click", function() {
+        userScore = userScore + red;
+        $("#userScore").html(userScore);
+        compare();
+
+    });
+    $("#blue").on("click", function() {
+        userScore = userScore + blue;
+        $("#userScore").html(userScore);
+        compare();
+
+    });
+    $("#gray").on("click", function() {
+        userScore = userScore + gray;
+        $("#userScore").html(userScore);
+        compare();
+
+    });
+    $("#green").on("click", function() {
+        userScore = userScore + green;
+        $("#userScore").html(userScore);
+        compare();
+
+    });
+
+
+}
+start();
+
+// (5) compare user score and computer guess
+
+function compare() {
+    if (userScore === computerGuess) {
+        (this).winCounter++;
+        $("#winCounter").html((this).winCounter);
+        reset();
+
+    } else if (userScore >= computerGuess) {
+        (this).lossCounter++;
+        $("#lossCounter").html((this).lossCounter);
+        reset();
+    }
+
+}
+$("#restart").on("click", function() {
+    location.reload();
+});
