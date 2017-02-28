@@ -104,3 +104,8 @@ function compare() {
 $("#restart").on("click", function() {
     location.reload();
 });
+$("#instr").hover(function() {
+    $(this).css('cursor', 'pointer').attr("title", "The Computer would guess a number and shows in TARGET. Each crystal would be assigned a hidden number randomly, when you click any of the crystals, that numbers would be added up. If your totalequals to the computer guess you win, if more you lose.. good luck");
+}, function() {
+    $(this).css('cursor', 'auto');
+});
