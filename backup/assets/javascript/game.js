@@ -4,42 +4,108 @@
 // (1) Create variables needed
 
 var computerGuess = 0, // for the number that computer will shoose randomly
-    result = 0, // for the addup numbers the user will choose
+    userScore = 0, // for the addup numbers the user will choose
     winCounter = 0, // how many wins
     lossCounter = 0, // how many losses
-    crystalOne = 0, // the number will be assinged randomly to the crystals
-    crystalTwo = 0,
-    crystalThree = 0,
-    crystalFour = 0,
-    crystalValue = 0;
+    red = 0, // the number will be assinged randomly to the crystals
+    blue = 0,
+    gray = 0,
+    green = 0
+
+// controler
+
+// $("#instr").hover(function() {
+//         $(this).html($("<span> HOVERING!!!!! </span>"));
+//     },
+//     function() {
+//         $(this).html($(""));
+//     });
+
 
 // (2) every time the page loads, have the computer create a random number and show it in guess span 
 // computerGuess = Math.random();
-computerGuess = Math.round(Math.random() * 101) + 19;
+computerGuess = Math.round(Math.random() * 100) + 19;
 $("#computerGuess").html(computerGuess);
 // console.log(computerGuess);
 
 
 // (3) also assign a number randomly to each crystal.
 
-// crystalValue = Math.round(4 + Math.random() * 40);
+// crystalValue = Math.round(4 + Math.random() * 29);
 
-crystalOne = Math.round(4 + Math.random() * 40);
+red = Math.round(4 + Math.random() * 29);
 // $("#crystal1").val = crystalOne;
-crystalTwo = Math.round(4 + Math.random() * 40);
-crystalThree = Math.round(4 + Math.random() * 40);
-crystalFour = Math.round(4 + Math.random() * 40);
+blue = Math.round(4 + Math.random() * 29);
+gray = Math.round(4 + Math.random() * 29);
+green = Math.round(4 + Math.random() * 29);
 
-$(".crystal").val(crystalValue);
-// console.log(crystalValue);
+// reset function to reset all the game data
+function reset() {
+    userScore = 0;
+    $("#userScore").html(userScore);
+    (this).computerGuess = Math.round(Math.random() * 100) + 19;
+    $("#computerGuess").html(computerGuess);
+    (this).red = Math.round(+Math.random() * 29);
+    // $("#crystal1").val = crystalOne;
+    (this).blue = Math.round(4 + Math.random() * 29);
+    (this).gray = Math.round(4 + Math.random() * 29);
+    (this).green = Math.round(4 + Math.random() * 29);
 
+
+};
 
 
 // (4)every time the user click on a crystal create add it to the score span
-$(".crystal").on("click", function() {
-    $("#winCounter").html(crystalOne);
-    // result += $(".crystal").crystalValue
-    // $("#userScore").html(result);
+function start() {
+    $("#red").on("click", function() {
+        userScore = userScore + red;
+        $("#userScore").html(userScore);
+        compare();
+
+    });
+    $("#blue").on("click", function() {
+        userScore = userScore + blue;
+        $("#userScore").html(userScore);
+        compare();
+
+    });
+    $("#gray").on("click", function() {
+        userScore = userScore + gray;
+        $("#userScore").html(userScore);
+        compare();
+
+    });
+    $("#green").on("click", function() {
+        userScore = userScore + green;
+        $("#userScore").html(userScore);
+        compare();
+
+    });
+
+
+}
+start();
+
+// (5) compare user score and computer guess
+
+function compare() {
+    if (userScore === computerGuess) {
+        (this).winCounter++;
+        $("#winCounter").html((this).winCounter);
+        reset();
+
+    } else if (userScore >= computerGuess) {
+        (this).lossCounter++;
+        $("#lossCounter").html((this).lossCounter);
+        reset();
+    }
+
+}
+$("#restart").on("click", function() {
+    location.reload();
 });
-// (5) if the guess == score, add the win counter by 1
-// (6) if the guess != scrore add he loss counter by 1
+$("#instr").hover(function() {
+    $(this).css('cursor', 'pointer').attr("title", "The Computer would guess a number and shows in TARGET. Each crystal would be assigned a hidden number randomly, when you click any of the crystals, that numbers would be added up. If your totalequals to the computer guess you win, if more you lose.. good luck");
+}, function() {
+    $(this).css('cursor', 'auto');
+});

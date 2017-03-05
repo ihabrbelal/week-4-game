@@ -33,11 +33,11 @@ $("#computerGuess").html(computerGuess);
 
 // crystalValue = Math.round(4 + Math.random() * 29);
 
-red = Math.round(4 + Math.random() * 29);
+red = Math.round(Math.random() * 19) + 1;
 // $("#crystal1").val = crystalOne;
-blue = Math.round(4 + Math.random() * 29);
-gray = Math.round(4 + Math.random() * 29);
-green = Math.round(4 + Math.random() * 29);
+blue = Math.round(Math.random() * 19) + 1;
+gray = Math.round(Math.random() * 19) + 1;
+green = Math.round(Math.random() * 19) + 1;
 
 // reset function to reset all the game data
 function reset() {
@@ -47,9 +47,9 @@ function reset() {
     $("#computerGuess").html(computerGuess);
     (this).red = Math.round(+Math.random() * 29);
     // $("#crystal1").val = crystalOne;
-    (this).blue = Math.round(4 + Math.random() * 29);
-    (this).gray = Math.round(4 + Math.random() * 29);
-    (this).green = Math.round(4 + Math.random() * 29);
+    (this).blue = Math.round(Math.random() * 19) + 1;
+    (this).gray = Math.round(Math.random() * 19) + 1;
+    (this).green = Math.round(Math.random() * 19) + 1;
 
 
 };
