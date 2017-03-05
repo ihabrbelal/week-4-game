@@ -91,11 +91,15 @@ start();
 function compare() {
     if (userScore === computerGuess) {
         (this).winCounter++;
+        alert("You Won");
+
         $("#winCounter").html((this).winCounter);
         reset();
 
     } else if (userScore >= computerGuess) {
         (this).lossCounter++;
+        alert("You Lose");
+
         $("#lossCounter").html((this).lossCounter);
         reset();
     }
